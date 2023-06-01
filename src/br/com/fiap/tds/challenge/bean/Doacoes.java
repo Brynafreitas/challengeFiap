@@ -1,6 +1,7 @@
 package br.com.fiap.tds.challenge.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Doacoes implements Interface{
 
@@ -10,21 +11,26 @@ public class Doacoes implements Interface{
 
 	private String ufDoacao;
 
-	private Date dtDoacao;
+	private LocalDate dtDoacao;
 
-	private double vlInvestido;
+	private Double vlInvestido;
+	
+	private String idFabrica;
+	
+	private String marca;
 
 	public Doacoes() {
 		super();
 	}
 
-	public Doacoes(int id, int qtRefeicoes, String ufDoacao, Date dtDoacao, double vlInvestido) {
+	public Doacoes(int id, int qtRefeicoes, String ufDoacao, LocalDate dtDoacao, double vlInvestido) {
 		super();
 		this.id = id;
 		this.qtRefeicoes = qtRefeicoes;
 		this.ufDoacao = ufDoacao;
 		this.dtDoacao = dtDoacao;
 		this.vlInvestido = vlInvestido;
+		
 	}
 
 	public int getId() {
@@ -39,11 +45,11 @@ public class Doacoes implements Interface{
 		return ufDoacao;
 	}
 
-	public Date getDtDoacao() {
+	public LocalDate getDtDoacao() {
 		return dtDoacao;
 	}
 
-	public double getVlInvestido() {
+	public Double getVlInvestido() {
 		return vlInvestido;
 	}
 
@@ -59,12 +65,29 @@ public class Doacoes implements Interface{
 		this.ufDoacao = ufDoacao;
 	}
 
-	public void setDtDoacao(Date dtDoacao) {
+	public void setDtDoacao(LocalDate dtDoacao) {
 		this.dtDoacao = dtDoacao;
 	}
 
 	public void setVlInvestido(double vlInvestido) {
 		this.vlInvestido = vlInvestido;
+	}
+
+	
+	public String getIdFabrica() {
+		return idFabrica;
+	}
+
+	public void setIdFabrica(String idFabrica) {
+		this.idFabrica = idFabrica;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	@Override

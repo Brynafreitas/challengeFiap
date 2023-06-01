@@ -1,22 +1,27 @@
 package br.com.fiap.tds.challenge.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public abstract class Abastecimento implements Interface{
 
 	private int id;
 
-	private Date dtRegistro;
+	private LocalDate dtRegistro;
 
 	private String tipoRecurso;
 
 	private String nmFornecedor;
+	
+	private String idFabrica;
+	
+	private String marca;
 
 	public Abastecimento() {
 		super();
 	}
 
-	public Abastecimento(int id, Date dtRegistro, String tipoRecurso, String nmFornecedor) {
+	public Abastecimento(int id, LocalDate dtRegistro, String tipoRecurso, String nmFornecedor) {
 		super();
 		this.id = id;
 		this.dtRegistro = dtRegistro;
@@ -28,7 +33,7 @@ public abstract class Abastecimento implements Interface{
 		return id;
 	}
 
-	public Date getDtRegistro() {
+	public LocalDate getDtRegistro() {
 		return dtRegistro;
 	}
 
@@ -44,7 +49,7 @@ public abstract class Abastecimento implements Interface{
 		this.id = id;
 	}
 
-	public void setDtRegistro(Date dtRegistro) {
+	public void setDtRegistro(LocalDate dtRegistro) {
 		this.dtRegistro = dtRegistro;
 	}
 
@@ -55,5 +60,22 @@ public abstract class Abastecimento implements Interface{
 	public void setNmFornecedor(String nmFornecedor) {
 		this.nmFornecedor = nmFornecedor;
 	}
+
+	public String getIdFabrica() {
+		return idFabrica;
+	}
+
+	public void setIdFabrica(String idFabrica) {
+		this.idFabrica = idFabrica;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	
 
 }

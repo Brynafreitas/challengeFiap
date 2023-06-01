@@ -25,8 +25,8 @@ public class ChallengeConnectionManager {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL", "",
-					"");
+			conexao = DriverManager.getConnection("jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL", "RM96989",
+					"211298");
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -2,7 +2,7 @@ package br.com.fiap.tds.challenge.bean;
 
 import java.util.Date;
 
-public class Natural extends Abastecimento {
+public class Natural implements Interface {
 
 	private String nmRecurso;
 	
@@ -12,14 +12,14 @@ public class Natural extends Abastecimento {
 	
 	private double vlGasto;
 	
-	
+	private int Id;
 
 	public Natural() {
 		super();
 	}
 
 	public Natural(int id, Date dtRegistro, String tipoRecurso, String nmFornecedor) {
-		super(id, dtRegistro, tipoRecurso, nmFornecedor);
+		super();
 	}
 
 	public String getNmRecurso() {
@@ -52,6 +52,14 @@ public class Natural extends Abastecimento {
 
 	public void setVlGasto(double vlGasto) {
 		this.vlGasto = vlGasto;
+	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 
 	@Override
