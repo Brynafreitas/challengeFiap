@@ -2,13 +2,11 @@ package br.com.fiap.tds.challenge.test;
 
 import java.time.LocalDate;
 
-import br.com.fiap.tds.challenge.bean.Abastecimento;
 import br.com.fiap.tds.challenge.bean.Avicultura;
 import br.com.fiap.tds.challenge.bean.Doacoes;
 import br.com.fiap.tds.challenge.bean.Fabrica;
 import br.com.fiap.tds.challenge.bean.Natural;
 import br.com.fiap.tds.challenge.bean.Usuario;
-import br.com.fiap.tds.challenge.dao.AbastecimentoDAO;
 import br.com.fiap.tds.challenge.dao.AviculturaDAO;
 import br.com.fiap.tds.challenge.dao.DoacoesDAO;
 import br.com.fiap.tds.challenge.dao.FabricaDAO;
@@ -20,13 +18,17 @@ public class TesteDaoFactory {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		String tipoRecursoNatural = "natural";
+		String tipoRecursoAvicultura = "avicultura";
+		
 		FabricaDAO dao = DAOFactory.getFabricaDAO();
 		Fabrica heinz = new Fabrica();
 		
 		heinz.setId("Fabrica 1");
 		heinz.setMarca("Heinz");
 		heinz.setUf("SP");
-		dao.cadastrarFabrica(heinz);
+		dao.cadastrarFabrica(heinz); 
 		
 		UsuarioDAO dao1 = DAOFactory.getUsuarioDAO();
 		Usuario usuario1 = new Usuario();
@@ -40,7 +42,6 @@ public class TesteDaoFactory {
 		DoacoesDAO dao2 = DAOFactory.getDoacoesDAO();
 		Doacoes doacoes1 = new Doacoes();
 		
-		doacoes1.setId(1);
 		doacoes1.setIdFabrica("Fabrica 1");
 		doacoes1.setMarca("Heinz");
 		doacoes1.setQtRefeicoes(5000);
@@ -49,40 +50,28 @@ public class TesteDaoFactory {
 		doacoes1.setVlInvestido(3900000);
 		dao2.cadastrarDoacoes(doacoes1);
 		
-		
-		AbastecimentoDAO dao3 = DAOFactory.getAbastecimentoDAO();
-		Abastecimento abastecimento1 = new Abastecimento();//Nao está permitindo instancionar este Abastecimento :(
-		
-		
-		abastecimento1.setId(1);
-		abastecimento1.setIdFabrica("Fabrica 1");
-		abastecimento1.setMarca("Heinz");
-		abastecimento1.setTipoRecurso("Água");
-		abastecimento1.setNmFornecedor("SABESP");
-		abastecimento1.setDtRegistro(LocalDate.of(2023, 05, 19));
-		dao3.cadastrarAbastecimento(abastecimento1);
-		
-		
 		NaturalDAO dao4 = DAOFactory.getNaturalDAO();
-		Natural natural1 = new Natural();
+		Natural natural1 = new Natural(LocalDate.of(2023, 05, 19), tipoRecursoNatural, "SABESP");
 		
-		natural1.setId(1);
+		natural1.setIdFabrica("Fabrica 1");
+		natural1.setMarca("Heinz");
 		natural1.setNmRecurso("Água");
-		natural1.setTipoRecurso("Natural");
+		natural1.setTipoRecurso(tipoRecursoNatural);
 		natural1.setQtGasta(0);
 		natural1.setVlGasto(0);
 		dao4.cadastrarNatural(natural1);
 		
 		AviculturaDAO dao5 = DAOFactory.getAviculturaDAO();
-		Avicultura avicultura1 = new Avicultura();
+		Avicultura avicultura1 = new Avicultura(LocalDate.of(2023, 05, 19), tipoRecursoAvicultura, "GALINACEO");
 		
-		avicultura1.setId(1);
+		avicultura1.setIdFabrica("Fabrica 1");
+		avicultura1.setMarca("Heinz");
 		avicultura1.setOvoCaipira(false);
 		avicultura1.setLivreGaiola(false);
-		avicultura1.setDtValidade(LocalDate.of(0, 0, 0));
+		avicultura1.setDtValidade(LocalDate.of(2023, 10, 19));
 		avicultura1.setQtLotes(0);
 		avicultura1.setVlUnitario(0);
-		avicultura1.setTipoRecurso(null);
+		avicultura1.setTipoRecurso(tipoRecursoAvicultura);
 		dao5.cadastrarAvicultura(avicultura1);
 		
 	}

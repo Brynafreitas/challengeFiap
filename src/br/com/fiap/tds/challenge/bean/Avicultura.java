@@ -3,7 +3,7 @@ package br.com.fiap.tds.challenge.bean;
 import java.time.LocalDate;
 
 
-public class Avicultura implements Interface {
+public class Avicultura extends Abastecimento {
 
 	private boolean ovoCaipira;
 
@@ -17,10 +17,14 @@ public class Avicultura implements Interface {
 
 	private String tipoRecurso;
 	
-	public int Id;
+	public int id;
 	
+	public Avicultura(LocalDate dtRegistro, String tipoRecurso, String nmFornecedor) {
+		super(dtRegistro, tipoRecurso, nmFornecedor);
+	}
+
 	public Avicultura(boolean ovoCaipira, boolean livreGaiola, LocalDate dtValidade, int qtLotes, double vlUnitario,
-			String tipoRecurso, int Id) {
+			String tipoRecurso, int id) {
 		super();
 		this.ovoCaipira = ovoCaipira;
 		this.livreGaiola = livreGaiola;
@@ -28,16 +32,11 @@ public class Avicultura implements Interface {
 		this.qtLotes = qtLotes;
 		this.vlUnitario = vlUnitario;
 		this.tipoRecurso = tipoRecurso;
-		this.Id = Id;
+		this.id = id;
 	}
-	
-
-
 	public Avicultura() {
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	public boolean isOvoCaipira() {
 		return ovoCaipira;
@@ -100,12 +99,12 @@ public class Avicultura implements Interface {
 
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	
 

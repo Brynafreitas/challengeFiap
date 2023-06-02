@@ -28,6 +28,13 @@ public abstract class Abastecimento implements Interface{
 		this.tipoRecurso = tipoRecurso;
 		this.nmFornecedor = nmFornecedor;
 	}
+	
+	public Abastecimento(LocalDate dtRegistro, String tipoRecurso, String nmFornecedor) {
+		super();
+		this.dtRegistro = dtRegistro;
+		this.tipoRecurso = tipoRecurso;
+		this.nmFornecedor = nmFornecedor;
+	}
 
 	public int getId() {
 		return id;

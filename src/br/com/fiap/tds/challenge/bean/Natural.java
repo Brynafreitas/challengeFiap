@@ -1,8 +1,8 @@
 package br.com.fiap.tds.challenge.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-public class Natural implements Interface {
+public class Natural extends Abastecimento{
 
 	private String nmRecurso;
 	
@@ -12,14 +12,23 @@ public class Natural implements Interface {
 	
 	private double vlGasto;
 	
-	private int Id;
+	private int id;
 
 	public Natural() {
 		super();
 	}
 
-	public Natural(int id, Date dtRegistro, String tipoRecurso, String nmFornecedor) {
+	public Natural(LocalDate dtRegistro, String tipoRecurso, String nmFornecedor) {
+	    super(dtRegistro, tipoRecurso, nmFornecedor);
+	}
+
+	public Natural(String nmRecurso, String tipoRecurso, double qtGasta, double vlGasto, int id) {
 		super();
+		this.nmRecurso = nmRecurso;
+		this.tipoRecurso = tipoRecurso;
+		this.qtGasta = qtGasta;
+		this.vlGasto = vlGasto;
+		this.id = id;
 	}
 
 	public String getNmRecurso() {
@@ -55,11 +64,11 @@ public class Natural implements Interface {
 	}
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 
 	@Override

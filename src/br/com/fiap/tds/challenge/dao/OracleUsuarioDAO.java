@@ -14,7 +14,7 @@ public class OracleUsuarioDAO implements UsuarioDAO {
 		PreparedStatement stmt = null;
 		Connection	conexao = ChallengeConnectionManager.getInstance().getConnection();
 		try {
-			String sql = "INSERT INTO T_USUARIO(id_usuario, cd_senha, T_FABRICA_ID_FABRICA, T_FABRICA_NM_MARCA) values(?,?,?,?)";
+			String sql = "INSERT INTO T_USUARIO(id_usuario, cd_senha, id_fabrica, nm_marca) values(?,?,?,?)";
 			stmt = conexao.prepareStatement(sql);
 			
 			stmt.setString(1, usuario.getId());

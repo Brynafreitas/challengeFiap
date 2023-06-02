@@ -13,16 +13,15 @@ public class OracleDoacoesDAO implements DoacoesDAO {
 		PreparedStatement stmt = null;
 		Connection	conexao = ChallengeConnectionManager.getInstance().getConnection();
 		try {
-			String sql = "INSERT INTO T_DOACOES(id_doacao, T_FABRICA_ID_FABRICA, T_FABRICA_NM_MARCA, qt_refeicoes, uf_doacao, dt_doacao, vl_investido) values(?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO T_DOACOES(id_doacao, id_fabrica, nm_marca, qt_refeicoes, uf_doacao, dt_doacao, vl_investido) values(SEQ_ID_DOACAO.nextval,?,?,?,?,?,?)";
 			stmt = conexao.prepareStatement(sql);
 			
-			stmt.setInt(1, doacoes.getId());
-			stmt.setString(2, doacoes.getIdFabrica());
-			stmt.setString(3, doacoes.getMarca());
-			stmt.setInt(4, doacoes.getQtRefeicoes());
-			stmt.setString(5, doacoes.getUfDoacao());
-			stmt.setDate(6, Date.valueOf(doacoes.getDtDoacao()));
-			stmt.setDouble(7, doacoes.getVlInvestido());
+			stmt.setString(1, doacoes.getIdFabrica());
+			stmt.setString(2, doacoes.getMarca());
+			stmt.setInt(3, doacoes.getQtRefeicoes());
+			stmt.setString(4, doacoes.getUfDoacao());
+			stmt.setDate(5, Date.valueOf(doacoes.getDtDoacao()));
+			stmt.setDouble(6, doacoes.getVlInvestido());
 		
 			
 			stmt.execute();
