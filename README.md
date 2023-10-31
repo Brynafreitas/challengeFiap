@@ -1,4 +1,5 @@
 # Challenge Kraft Heinz
+-Grupo: Beatriz Sordi, Bruna de Freitas, Ester Barreto e João Smid.
 
 NOSSA MISSÃO
 Conforme a proposta apresentada do Challenge Kraft Heinz o grupo decidiu criar um Sistema de Monitoramento ESG de acordo com os 3 pilares de ESG da empresa referência mundial no setor de alimentos.
